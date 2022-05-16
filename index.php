@@ -103,7 +103,7 @@
 		<!-- Pos Header end -->
 
 		<!-- Formulario -->
-		<section class="container formulario">
+		<section id="section_formulario" class="container formulario">
 	  	<div class="row">
 
 		  	<div class="col-md-10 offset-md-1">
@@ -220,7 +220,7 @@
 		        	En la Fundación Sonríe la Vida buscamos contribuir para que los tratamientos centrados en la Longevidad y el Bienestar Emocional sean accesibles para todos, sin importar su edad, origen, raza, estatus social/económico o género. Esto lo logramos realizando desarrollos tecnológicos sobre el envejecimiento y el equilibrio emocional en nuestro propio centro de Investigación de vanguardia y lo llevamos a la gente mediante la colaboración y cooperación con otras organizaciones.
 		        </p>
 		        <div class="text-center">
-		        	<a class="btn btn-primary">+ Info</a>
+		        	<a href="#section_formulario" class="btn btn-primary">+ Info</a>
 		        </div>
 			  	</div>
 
@@ -385,7 +385,7 @@
 
 			  	<div data-aos="fade-up" class="row cta">
 				  	<div class="col-md-12">
-			        <a href="#" class="btn btn-primary">Solicitar información</a>
+			        <a href="#section_formulario" class="btn btn-primary">Solicitar información</a>
 				  	</div>
 			  	</div>
 
@@ -505,6 +505,7 @@
 	<!-- Footer end -->
 
 	<script type="text/javascript" src="./../node_modules/jquery/dist/jquery.min.js"></script>
+	<script type="text/javascript" src="./../node_modules/jquery-easing/dist/jquery.easing.1.3.umd.min.js"></script>
 	<script src="https://www.google.com/recaptcha/api.js?render=<?= RECAPTCHA_KEY_SITE ?>"></script>
 	<script type="text/javascript" src="./../node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
 	<script type="text/javascript" src="./../node_modules/aos/dist/aos.js"></script>
