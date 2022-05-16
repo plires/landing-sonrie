@@ -127,13 +127,13 @@ header .logo {
 	margin-bottom: 60px;
 }
 
-.pos_header .col-md-6 p {
+.pos_header .col-sm-7 p {
 	margin-bottom: 0;
 }
 
 .pos_header .gradient {
-	padding-top: 20px;
-	padding-bottom: 20px;
+	padding-top: 40px;
+	padding-bottom: 40px;
 	display: flex;
 	justify-content: center;
 	flex-direction: column;
@@ -179,7 +179,6 @@ header .logo {
 
 /* Foco de Trabajo */
 .foco_trabajo {
-	margin-bottom: 60px;
 	padding-top: 30px;
 	padding-bottom: 30px;
 }
@@ -194,6 +193,7 @@ header .logo {
 
 /* Grados */
 .grados {
+	padding-top: 30px;
 	background-image: url('../img/fondo-ondas.jpg');
 	background-repeat: no-repeat;
 	background-position: 50% 50%;
@@ -349,7 +349,7 @@ header .logo {
 }
 
 .rinascere .red h2 {
-	font-size: 1,5rem;
+	font-size: 1.5rem;
 	font-weight: 700;
 }
 
@@ -364,10 +364,6 @@ header .logo {
 /* Rinascere end */
 
 /* Testimonios */
-.testimonios {
-	margin-bottom: 60px;
-}
-
 .testimonios h2 {
 	font-size: 2rem;
 	font-weight: 700;
@@ -535,13 +531,380 @@ footer .col-md-10 .data i:hover {
 
 @media (min-width: 768px) {
 
+	/* Foco de Trabajo */
+	.foco_trabajo {
+		padding-top: 60px;
+		padding-bottom: 60px;
+	}
+	/* Foco de Trabajo end */
 
+	/* Grados */
+	.grados {
+		padding-top: 60px;
+	}
+	/* Grados end */
+
+	/* Imagen Amigos */
+	.imagen_amigos {
+		height: 360px;
+	}
+
+	.imagen_amigos h2 {
+		font-size: 2.25rem;
+	}
+	/* Imagen Amigos end */
+
+	/* Valores */
+	.valores .content_valor {
+		padding: 60px;
+	}
+	/* Valores end */
+
+	/* Rinascere */
+	.rinascere .image {
+		height: 360px;
+	}
+
+	.rinascere .image h2 {
+		font-size: 2.5rem;
+	}
+
+	.rinascere .image h3 {
+		font-size: 1.25rem;
+	}
+
+	.rinascere .red {
+		padding-top: 60px;
+		padding-bottom: 60px;
+	}
+
+	.rinascere .red h2 {
+		margin-bottom: 30px;
+	}
+
+	.rinascere .cta {
+		margin-top: 30px;
+	}
+	/* Rinascere end */
+
+	/* Testimonios */
+	.testimonios .back_light_color {
+		padding-top: 60px!important;
+		padding-bottom: 60px!important;
+	}
+
+	.testimonios .content_info {
+		height: 100%;
+	} 
+
+	.testimonios .people #testimonio-1 .col-md-6:last-child .image {
+		margin-bottom: 0;
+	}
+
+	.testimonios .people #testimonio-1 .col-md-6:first-child,
+	.testimonios .people #testimonio-2 .col-md-6:first-child {
+		padding-right: 0;
+	}
+
+	.testimonios .people #testimonio-1 .col-md-6:last-child,
+	.testimonios .people #testimonio-2 .col-md-6:last-child {
+		padding-left: 0;
+	}
+
+	.testimonios .content_info p {
+		font-size: 1rem;
+		position: relative;
+	}
+
+	.testimonios .content_info p:first-child {
+		margin-top: 60px;
+		padding-bottom: 30px;
+	}
+
+	.testimonios .content_info p:first-child:before {
+		content: '\201C';
+		position: absolute;
+		top: 0;
+		left: 0;
+		font-size: 4rem;
+		margin-top: -60px;
+	}
+
+	.testimonios .content_info p:first-child:after {
+		content: '';
+		position: absolute;
+		bottom: 0;
+		left: 0;
+		width: 60px;
+		height: 5px;
+		background: white;
+	}
+	/* Testimonios end */
+	
 }
 
 @media (min-width: 992px) {
 
+	/* Pos Header */
+	.pos_header ,
+	.pos_header .gradient {
+		height: 80vh;
+	}
+
+	.pos_header .col-sm-5 {
+		background-image: url('../img/colibri.jpg');
+		background-repeat: no-repeat;
+		background-position: 63% 50%;
+		background-size: cover;
+	}
+
+	.pos_header .img_fundacion {
+		display: none;
+	}
+
+	.pos_header .gradient h1 {
+		font-size: 2.5rem;
+	}
+	/* Pos Header end */
+
+	/* Formulario */
+	.formulario .content_form {
+		background: rgba(255, 255, 255, 0.8);
+		margin: -160px auto 0 auto;
+		padding: 60px;
+		border-radius: 10px;
+		box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+		max-width: 85%;
+	}
+
+	.formulario h2 {
+		max-width: 80%;
+		margin: 0 auto 30px auto;
+		font-size: 1.5rem;
+	}
+
+	.formulario p {
+		max-width: 80%;
+		margin: 0 auto 30px auto;
+	}
+	/* Formulario end */
+
+	/* Grados */
+	.grados .content_data {
+		top: 60px;
+		margin-top: 170px;
+	}
+	/* Grados end */
+
+	/* Imagen Amigos */
+	.imagen_amigos {
+		height: 540px;
+	}
+
+	.imagen_amigos h2 {
+		font-size: 3rem;
+		margin-bottom: 60px;
+	}
+	/* Imagen Amigos end */
+
+	/* Valores */
+	.valores .content_valor .content_title {
+		margin-bottom: 20px;
+	}
+
+	.valores .content_valor .content_title h2 {
+		font-size: 2rem;
+		margin-left: 15px;
+	}
+
+	.valores .content_valor .content_title img {
+		max-width: 50px;
+	}
+	/* Valores end */
+
+	/* Rinascere */
+	.rinascere .image {
+		height: 540px;
+		padding-bottom: 90px;
+	}
+	/* Rinascere end */
+
 }
 
 @media (min-width: 1200px) {
+
+	/* Testimonios */
+	.testimonios .content_info {
+		justify-content: space-around;
+	}
+	/* Testimonios end */
+
+}
+
+@media (min-width: 1300px) {
+
+	/* Comunes */
+	.btn-primary {
+		font-size: 1.25rem;
+	}
+	/* Comunes end */
+
+	/* Pos Header */
+	.pos_header ,
+	.pos_header .gradient {
+		height: 90vh;
+	}
+
+	.pos_header .col-sm-5 {
+		background-position: 50% 80%;
+	}
+	/* Pos Header end */
+
+	/* Formulario */
+	.formulario .content_form {
+		margin: -200px auto 0 auto;
+	}
+	/* Formulario end */
+
+	/* Foco de Trabajo */
+	.foco_trabajo {
+		padding-top: 90px;
+		padding-bottom: 90px;
+	}
+
+	.foco_trabajo h2 {
+		font-size: 2rem;
+		margin-bottom: 60px;
+	}
+
+	.foco_trabajo p {
+		font-size: 1.25rem;
+		margin-bottom: 60px;
+	}
+	/* Foco de Trabajo end */
+
+	/* Grados */
+	.grados {
+		padding-top: 120px;
+		padding-bottom: 120px;
+	}
+
+	.grados h2 {
+		font-size: 2rem;
+		margin-bottom: 60px;
+	}
+
+	.grados .content_data {
+		top: 170px;
+	}
+	/* Grados end */
+
+	/* Amigos */
+	.imagen_amigos {
+		height: 750px;
+	}
+
+	.imagen_amigos h2 {
+		font-size: 3.5rem;
+		margin-bottom: 100px;
+	}
+	/* Amigos end */
+
+	/* Valores */
+	.valores {
+		padding-top: 90px;
+		padding-bottom: 90px;
+	}
+
+	.valores .content_valor {
+		margin-bottom: 80px;
+	}
+
+	.valores .content_valor p {
+		font-size: 1.15rem;
+	}
+	/* Valores end */
+
+	/* Rinascere */
+	.rinascere .image {
+		height: 750px;
+	}
+
+	.rinascere .image h2 {
+		font-size: 3rem;
+	}
+
+	.rinascere .red h2 {
+		font-size: 1.75rem;
+	}
+
+	.rinascere .red p {
+		font-size: 1.15rem;
+		margin-bottom: 60px;
+	}
+	/* Rinascere end */
+
+	/* Testimonios */
+	.testimonios .back_light_color {
+		padding-top: 60px!important;
+		padding-bottom: 120px!important;
+	}
+
+	.testimonios h2 {
+		font-size: 2rem;
+	}
+	/* Testimonios end */
+
+}
+
+@media (min-width: 1600px) {
+
+	/* Pos Header */
+	.pos_header .gradient h1 {
+		font-size: 3.5rem;
+		margin-bottom: 40px;
+	}
+
+	.pos_header .gradient p {
+		font-size: 1.25rem;
+	}
+	/* Pos Header end */
+
+	/* Formulario */
+	.formulario h2 {
+		font-size: 1.75rem;
+	}
+
+	.formulario p {
+		font-size: 1.15rem;
+	}
+
+	.formulario #send {
+		margin-top: 60px;
+	}
+	/* Formulario end */
+
+	/* Foco de Trabajo */
+	.foco_trabajo {
+		padding-top: 90px;
+		padding-bottom: 90px;
+	}
+	/* Foco de Trabajo end */
+
+	/* Testimonios */
+	.testimonios .content_info p {
+		font-weight: 700;
+		font-size: 1.25rem;
+	}
+
+	.testimonios .content_info p:last-child {
+		line-height: 1.5;
+	}
+
+	.testimonios .content_info p:first-child::before {
+		margin-top: -80px;
+		padding-bottom: 50px;
+	}
+	/* Testimonios end */
 
 }

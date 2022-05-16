@@ -80,8 +80,8 @@
 		<!-- Header end -->
 
 		<!-- Pos Header -->
-		<section id="first_section" data-aos="fade-up" class="container-fluid pos_header">
-	  	<div class="row">
+		<section id="first_section" class="container-fluid pos_header">
+	  	<div class="row h-100">
 
 		  	<div class="col-sm-7 gradient">
 		  		<div class="row">
@@ -95,7 +95,7 @@
 		  	</div>
 
 		  	<div class="col-sm-5 p-0">
-	        <img class="img-fluid" src="./img/colibri.jpg" alt="colibri">
+	        <img class="img-fluid img_fundacion" src="./img/colibri.jpg" alt="colibri">
 		  	</div>
 
 	  	</div>
@@ -103,102 +103,106 @@
 		<!-- Pos Header end -->
 
 		<!-- Formulario -->
-		<section data-aos="fade-up" class="container formulario">
+		<section class="container formulario">
 	  	<div class="row">
 
 		  	<div class="col-md-10 offset-md-1">
+
+		  		<div class="content_form">
+
+		  			<!-- Mensaje Exito -->
+			      <?php if (isset($msg_contacto)): ?>
+			        <div id="msg_contacto" class="alert alert-success alert-dismissible fade show" role="alert">
+			          <strong>¡Datos recibidos!</strong>
+			          <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+			          <ul style="padding: 0;">
+			              <li>- <?php echo $msg_contacto; ?></li>
+			          </ul>
+			        </div>
+			      <?php endif ?>
+			      <!-- Mensaje Exito end -->
+
+			      <!-- Errores Formulario -->
+			      <?php if ($errors): ?>
+
+			        <div id="error" class="alert alert-danger alert-dismissible fade show" role="alert">
+			          <strong>¡Por favor verificá los datos!</strong>
+			          <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+			          <ul style="padding: 0;">
+			            <?php foreach ($errors as $error) { ?>
+			              <li>- <?php echo $error; ?></li>
+			            <?php } ?>
+			          </ul>
+			        </div>
+
+			      <?php endif ?>
+			      <!-- Errores Formulario end -->
+
+			      <h2>
+			      	¿Está interesado en aprender más sobre los avances en el área de la longevidad y como lo hemos logrado en nuestra Fundación?
+			      </h2>
+
+			      <p data-aos="fade-up">
+			      	Contactanos para saber cómo podemos ayudarte a que vivas intensamente, tengas el balance emocional esperado y así poder también aportar a las causas de la comunidad
+			      </p>
+
+			      <form data-aos="fade-up" id="form-contacto" action="./php/validate-form.php" method="post" class="needs-validation" novalidate>
+
+			        <input name="origin" type="hidden" value="Formulario de Contacto">
+
+			        <div class="row">
+
+			        	<div class="col-md-6">
+			        		
+					        <!-- Nombre -->
+					        <div class="mb-3">
+					          <label for="name" class="form-label">Nombre *</label>
+					          <input required type="text" class="form-control" value="<?= $name ?>" name="name">
+					          <div class="invalid-feedback">
+					            Ingresá tu nombre
+					          </div>
+					        </div>
+
+					        <!-- Apellido -->
+					        <div class="mb-3">
+					          <label for="last_name" class="form-label">Apellido *</label>
+					          <input required type="text" class="form-control" value="<?= $last_name ?>" name="last_name">
+					          <div class="invalid-feedback">
+					            Ingresá tu apellido
+					          </div>
+					        </div>
+
+			        	</div>
+
+			        	<div class="col-md-6">
+			        		
+					        <!-- Email -->
+					        <div class="mb-3">
+					          <label for="email" class="form-label">Email *</label>
+					          <input required type="email" class="form-control" value="<?= $email ?>" name="email">
+					          <div class="invalid-feedback">
+					            Ingresá tu email
+					          </div>
+					        </div>
+
+					        <!-- Telefono -->
+					        <div class="mb-3">
+					          <label for="phone" class="form-label">Teléfono</label>
+					          <input type="tel" class="form-control" value="<?= $phone ?>" name="phone">
+					        </div>
+
+			        	</div>
+
+			        </div>
+
+			        <div class="text-center">
+			        	<button type="button" id="send" class="btn btn-primary">Solicitar información</button>
+			        </div>
+
+			      </form>
+		  			
+		  		</div>
 	        
-	        <!-- Mensaje Exito -->
-		      <?php if (isset($msg_contacto)): ?>
-		        <div id="msg_contacto" class="alert alert-success alert-dismissible fade show" role="alert">
-		          <strong>¡Datos recibidos!</strong>
-		          <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-		          <ul style="padding: 0;">
-		              <li>- <?php echo $msg_contacto; ?></li>
-		          </ul>
-		        </div>
-		      <?php endif ?>
-		      <!-- Mensaje Exito end -->
-
-		      <!-- Errores Formulario -->
-		      <?php if ($errors): ?>
-
-		        <div id="error" class="alert alert-danger alert-dismissible fade show" role="alert">
-		          <strong>¡Por favor verificá los datos!</strong>
-		          <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-		          <ul style="padding: 0;">
-		            <?php foreach ($errors as $error) { ?>
-		              <li>- <?php echo $error; ?></li>
-		            <?php } ?>
-		          </ul>
-		        </div>
-
-		      <?php endif ?>
-		      <!-- Errores Formulario end -->
-
-		      <h2>
-		      	¿Está interesado en aprender más sobre los avances en el área de la longevidad y como lo hemos logrado en nuestra Fundación?
-		      </h2>
-
-		      <p>
-		      	Contactanos para saber cómo podemos ayudarte a que vivas intensamente, tengas el balance emocional esperado y así poder también aportar a las causas de la comunidad
-		      </p>
-
-		      <form id="form-contacto" action="./php/validate-form.php" method="post" class="needs-validation" novalidate>
-
-		        <input name="origin" type="hidden" value="Formulario de Contacto">
-
-		        <div class="row">
-
-		        	<div class="col-md-6">
-		        		
-				        <!-- Nombre -->
-				        <div class="mb-3">
-				          <label for="name" class="form-label">Nombre *</label>
-				          <input required type="text" class="form-control" value="<?= $name ?>" name="name">
-				          <div class="invalid-feedback">
-				            Ingresá tu nombre
-				          </div>
-				        </div>
-
-				        <!-- Apellido -->
-				        <div class="mb-3">
-				          <label for="last_name" class="form-label">Apellido *</label>
-				          <input required type="text" class="form-control" value="<?= $last_name ?>" name="last_name">
-				          <div class="invalid-feedback">
-				            Ingresá tu apellido
-				          </div>
-				        </div>
-
-		        	</div>
-
-		        	<div class="col-md-6">
-		        		
-				        <!-- Email -->
-				        <div class="mb-3">
-				          <label for="email" class="form-label">Email *</label>
-				          <input required type="email" class="form-control" value="<?= $email ?>" name="email">
-				          <div class="invalid-feedback">
-				            Ingresá tu email
-				          </div>
-				        </div>
-
-				        <!-- Telefono -->
-				        <div class="mb-3">
-				          <label for="phone" class="form-label">Teléfono</label>
-				          <input type="tel" class="form-control" value="<?= $phone ?>" name="phone">
-				        </div>
-
-		        	</div>
-
-		        </div>
-
-		        <div class="text-center">
-		        	<button type="button" id="send" class="btn btn-primary">Solicitar información</button>
-		        </div>
-
-		      </form>
-
 		  	</div>
 
 	  	</div>
@@ -206,11 +210,11 @@
 		<!-- Formulario end -->
 
 		<!-- Foco de Trabajo -->
-		<section data-aos="fade-up" class="container-fluid back_light_color foco_trabajo">
+		<section class="container-fluid back_light_color foco_trabajo">
 			<div class="container p-0">
 		  	<div class="row">
 
-			  	<div class="col-md-12">
+			  	<div data-aos="fade-up" class="col-md-12">
 		        <h2>Nuestro Foco de Trabajo</h2>
 		        <p>
 		        	En la Fundación Sonríe la Vida buscamos contribuir para que los tratamientos centrados en la Longevidad y el Bienestar Emocional sean accesibles para todos, sin importar su edad, origen, raza, estatus social/económico o género. Esto lo logramos realizando desarrollos tecnológicos sobre el envejecimiento y el equilibrio emocional en nuestro propio centro de Investigación de vanguardia y lo llevamos a la gente mediante la colaboración y cooperación con otras organizaciones.
@@ -226,15 +230,15 @@
 		<!-- Foco de Trabajo end -->
 
 		<!-- Grados -->
-		<section data-aos="fade-up" class="container-fluid grados">
+		<section class="container-fluid grados">
 			<div class="container p-0">
 				<div class="row">
 
 					<div class="col-md-12">
-						<h2>Los tres grados de bienestar según nuestra institución</h2>
+						<h2 data-aos="fade-up">Los tres grados de bienestar según nuestra institución</h2>
 					</div>
 
-				  <div class="col-sm-6 col-lg-4 grado_individual">
+				  <div data-aos="fade-up" class="col-sm-6 col-lg-4 grado_individual">
 				  	<div class="content_grado">
 				  		<img class="img-fluid" src="./img/grado1.png" alt="grado 1">
 				  		<div class="content_data">
@@ -246,7 +250,7 @@
 				  	</div>
 				  </div>
 
-				  <div class="col-sm-6 col-lg-4 grado_individual">
+				  <div data-aos="fade-up" class="col-sm-6 col-lg-4 grado_individual">
 				  	<div class="content_grado">
 				  		<img class="img-fluid" src="./img/grado2.png" alt="grado 2">
 				  		<div class="content_data">
@@ -258,7 +262,7 @@
 				  	</div>
 				  </div>
 
-				  <div class="col-sm-6 col-lg-4 grado_individual">
+				  <div data-aos="fade-up" class="col-sm-6 col-lg-4 grado_individual">
 				  	<div class="content_grado">
 				  		<img class="img-fluid" src="./img/grado3.png" alt="grado 3">
 				  		<div class="content_data">
@@ -280,7 +284,7 @@
 			<div class="container p-0">
 				<div class="row">
 					<div class="col-md-12">
-						<h2>EN BUSCA DE LAS CAUSAS,<br> NO SOLO LOS EFECTOS</h2>
+						<h2 data-aos="fade-up">EN BUSCA DE LAS CAUSAS,<br> NO SOLO LOS EFECTOS</h2>
 					</div>
 				</div>
 			</div>
@@ -294,11 +298,11 @@
 
 			  	<div class="col-md-12">
 			  		<div class="content_valor">
-				  		<div class="content_title">
+				  		<div data-aos="fade-up" class="content_title">
 				  			<img class="img-fluid" src="./img/mision.png" alt="icono mision">
 				  			<h2>Misión</h2>
 				  		</div>
-			        <p>
+			        <p data-aos="fade-up">
 								Nos inspiramos en el desarrollo vital de personas que se encuentren en situaciones de vulnerabilidad física y/o emocional. Proporcionando herramientas que mejoren su desarrollo personal, entorno y 
 								bienestar general.
 			        </p>
@@ -307,11 +311,11 @@
 
 			  	<div class="col-md-12">
 			  		<div class="content_valor">
-				  		<div class="content_title">
+				  		<div data-aos="fade-up" class="content_title">
 				  			<img class="img-fluid" src="./img/vision.png" alt="icono vision">
 				  			<h2>Visión</h2>
 				  		</div>
-			        <p>
+			        <p data-aos="fade-up">
 								Creemos que al romperse muchos paradigmas y en lo vertiginoso de un futuro lleno de interrogantes, el ser humano oprimido en un sin sentido, necesita creer y crear una nueva realidad, partiendo de su propio bienestar. Creemos en nuestras competencias y que somos capaces de acompañar a muchas personas en ese retorno al orden natural. Cooperando y asisten do al desarrollo de otras organizaciones sin fines de lucro. Consolidando y atrayendo diversos fondos y donaciones como así realizando acciones para tal fin que logren finalmente realizar lo proyectado por la Fundación. Consolidando y atrayendo diversos fondos y donaciones como así realizando acciones para tal fin que logren finalmente realizar lo proyectado por la Fundación.
 			        </p>
 			  		</div>
@@ -319,11 +323,11 @@
 
 			  	<div class="col-md-12">
 			  		<div class="content_valor">
-				  		<div class="content_title">
+				  		<div data-aos="fade-up" class="content_title">
 				  			<img class="img-fluid" src="./img/objetivos.png" alt="icono objetivos">
 				  			<h2>Objetivos & Creencias</h2>
 				  		</div>
-			        <p>
+			        <p data-aos="fade-up">
 								• Aspiramos a proporcionar a la comunidad, tecnologías capaces de mejorar los obstáculos que 
 								impiden la plenitud de las personas.  
 								• Apuntamos a campañas de capacitación y difusión capaces de lograr concientizar problemas como lo son, la depresión, ansiedad, bullying,  
@@ -350,7 +354,7 @@
 				<div class="image">
 					<div class="container">
 						<div class="row">
-					  	<div class="col-md-12 p-0">
+					  	<div data-aos="fade-up" class="col-md-12 p-0">
 				        <h2>RINASCERE</h2>
 				        <h3>LA INVESTIGACIÓN AL SERVICIO DEL SER HUMANO</h3>
 					  	</div>
@@ -362,8 +366,8 @@
 			<div class="red">
 				<div class="container">
 
-			  	<div class="row">
-				  	<div class="col-md-12 p-0">
+			  	<div data-aos="fade-up" class="row">
+				  	<div data-aos="fade-up" class="col-md-12 p-0">
 			        <h2>Rinascere</h2>
 			        <p>
 			        	Es un método de intervención de procesos que incluyen, la biología, la física aplicada, la genética, el estudio de los 
@@ -379,7 +383,7 @@
 				  	</div>
 			  	</div>
 
-			  	<div class="row cta">
+			  	<div data-aos="fade-up" class="row cta">
 				  	<div class="col-md-12">
 			        <a href="#" class="btn btn-primary">Solicitar información</a>
 				  	</div>
@@ -392,57 +396,65 @@
 		<!-- Rinascere end -->
 
 		<!-- Testimonios -->
-		<section data-aos="fade-up" class="container-fluid testimonios">
+		<section data-aos="fade-up" class="testimonios">
 
-			<div class="container p-0">
-		  	
+			<div class="container">
 		  	<div class="row title">
 			  	<div class="col-md-12">
-		        <h2>Testimonios</h2>
+		        <h2 data-aos="fade-up">Testimonios</h2>
 			  	</div>
-		  	</div>
+		  	</div>				
+			</div>
+		  	
+			<div class="container-fluid back_light_color p-0">
 
-		  	<div class="row people">
+				<div class="container">
+					
+			  	<div class="row people">
 
-			  	<div id="testimonio-1" class="col-sm-6">
-			  		<div class="row">
+				  	<div data-aos="fade-up" id="testimonio-1" class="col-sm-6">
+				  		<div class="row">
 
-			  			<div class="col-md-6">
-					  		<div class="content_info gradient_50">
-									<p>No hay enseñanza sin investigación, ni investigación sin enseñanza</p>
-									<p>Agustin<br><span>30 años</span></p>
-					  		</div>			  				
-			  			</div>
-			  			<div class="col-md-6">
-					  		<div id="testimonio-1" class="image">
-									<img class="img-fluid" src="./img/testimonios-1.jpg" alt="testimonios">
-					  		</div>			  				
-			  			</div>
-			  		</div>
-			  		
+				  			<div class="col-md-6">
+						  		<div class="content_info gradient_50">
+										<p>No hay enseñanza sin investigación, ni investigación sin enseñanza</p>
+										<p>Agustin<br><span>30 años</span></p>
+						  		</div>			  				
+				  			</div>
+
+				  			<div class="col-md-6">
+						  		<div id="testimonio-1" class="image">
+										<img class="img-fluid" src="./img/testimonios-1.jpg" alt="testimonios">
+						  		</div>			  				
+				  			</div>
+
+				  		</div>
+				  	</div>
+
+				  	<div data-aos="fade-up" id="testimonio-2" class="col-sm-6">
+				  		<div class="row">
+				  			
+				  			<div class="col-md-6">
+						  		<div class="content_info gradient_50">
+										<p>
+											El Programa RINACERE salvo mi vida, ahora estoy feliz y desde ahora seré un miembro activo de esta institución.
+										</p>
+										<p>José<br><span>45 años</span></p>
+						  		</div>			  				
+				  			</div>
+
+				  			<div class="col-md-6">
+						  		<div id="testimonio-2" class="image">
+										<img class="img-fluid" src="./img/testimonios-2.jpg" alt="testimonios">
+						  		</div>			  				
+				  			</div>
+
+				  		</div>
+				  	</div>
+
 			  	</div>
 
-			  	<div id="testimonio-2" class="col-sm-6">
-			  		<div class="row">
-			  			
-			  			<div class="col-md-6">
-					  		<div class="content_info gradient_50">
-									<p>
-										El Programa RINACERE salvo mi vida, ahora estoy feliz y desde ahora seré un miembro activo de esta institución.
-									</p>
-									<p>José<br><span>45 años</span></p>
-					  		</div>			  				
-			  			</div>
-			  			<div class="col-md-6">
-					  		<div id="testimonio-2" class="image">
-									<img class="img-fluid" src="./img/testimonios-2.jpg" alt="testimonios">
-					  		</div>			  				
-			  			</div>
-			  		</div>
-			  		
-			  	</div>
-
-		  	</div>
+				</div>
 
 			</div>
 
