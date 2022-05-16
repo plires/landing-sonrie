@@ -20,7 +20,7 @@ $(document).ready(function() {
 
     if (!errorsInFieldsFront) {
       grecaptcha.ready(function() {
-        grecaptcha.execute('6LfQXUUfAAAAALOBXiVT7UxaxlPn4q6D4leY5KnF', {
+        grecaptcha.execute('6Ld9PvUfAAAAAFl1rK40-U_2HHP9vsvqymQMR_i1', {
           action: 'validarFormulario'
           }).then(function(token) {
           $('#form-contacto').prepend('<input type="hidden" name="token" value="' + token + '" >');
