@@ -196,8 +196,8 @@
       .button-td-primary:hover,
       .button-a-primary:hover {
           background: #fff5e3 !important;
-            border-color: #f09b28 !important;
-          color: #f09b28 !important;
+            border-color: #190080 !important;
+          color: #190080 !important;
       }
 
         .button-td-secondary:hover,
@@ -315,14 +315,14 @@
           <tr>
               <td style="vertical-align: middle;">
                   
-                  <img src="https://dellabitta.com.ar/img/emails/header.jpg" style="margin:0; padding:0; border:none; display:block; width: 100%; height: auto;" border="0" alt="header" />
+                  <img src="https://sonrielavida.org/landing/img/header-email.jpg" style="margin:0; padding:0; border:none; display:block; width: 100%; height: auto;" border="0" alt="header" />
 
               </td>
           </tr>
           <!-- Header end-->
 
           <!-- Texto-->
-          <tr style="background-color: #f09b28;">
+          <tr style="background-color: #190080;">
               <td style="padding: 10px; vertical-align: middle;">
                   
                   <h1 class="fallback-font" style="margin: 0px!important; font-family: 'Montserrat', sans-serif; font-size: 28px; color: #FFFFFF; text-align: center; font-weight: 700;">
@@ -356,15 +356,15 @@
                   </p>
 
                   <p class="fallback-font" style="margin: 0 0 10px; font-family: 'Montserrat', sans-serif; font-size: 16px; line-height: 26px; color: #575756; text-align: left; font-weight: 400;">
+                      <strong>Apellido:</strong> {last_name_user}
+                  </p>
+
+                  <p class="fallback-font" style="margin: 0 0 10px; font-family: 'Montserrat', sans-serif; font-size: 16px; line-height: 26px; color: #575756; text-align: left; font-weight: 400;">
                       <strong>Email:</strong> {email_user}
                   </p>
 
                   <p class="fallback-font" style="margin: 0 0 10px; font-family: 'Montserrat', sans-serif; font-size: 16px; line-height: 26px; color: #575756; text-align: left; font-weight: 400;">
                       <strong>Tel&eacute;fono:</strong> {phone_user}
-                  </p>
-
-                  <p class="fallback-font" style="margin: 0 0 10px; font-family: 'Montserrat', sans-serif; font-size: 16px; line-height: 26px; color: #575756; text-align: left; font-weight: 400;">
-                      <strong>Mensaje: </strong> {comments_user}
                   </p>
 
                   <p class="fallback-font" style="margin: 0 0 10px; font-family: 'Montserrat', sans-serif; font-size: 16px; line-height: 26px; color: #575756; text-align: left; font-weight: 400;">
@@ -376,8 +376,8 @@
           <!-- Texto end-->
 
           <!-- Boton : BEGIN -->
-          <tr style="background-color: #f09b28;">
-              <td style="background-color: #f09b28; text-align: center; padding: 40px;">
+          <tr style="background-color: #190080;">
+              <td style="background-color: #190080; text-align: center; padding: 40px;">
 
                 <p class="fallback-font" style="margin: 0 0 10px; margin-bottom: 20px; font-family: 'Montserrat', sans-serif; font-size: 16px; line-height: 26px; color: #FFFFFF; text-align: center; font-weight: 400;">
                   <strong>¿Necesitas responder a este usuario?</strong>
@@ -386,7 +386,7 @@
                   <table align="center" role="presentation" cellspacing="0" cellpadding="0" border="0" style="margin: auto;">
                       <tr>
                           <td class="button-td button-td-primary" style="border-radius: 4px; background: #FFFFFF;">
-                              <a class="fallback-font button-a button-a-primary" target="_blank" rel="noopener" href="mailto:{email_user}" style="background: #FFFFFF; border: 1px solid #FFFFFF; font-family: 'Montserrat', sans-serif; font-size: 18px; line-height: 28px; font-weight: 700; text-decoration: none; padding: 10px 20px; color: #f09b28; display: block; border-radius: 4px;">RESPONDER
+                              <a class="fallback-font button-a button-a-primary" target="_blank" rel="noopener" href="mailto:{email_user}" style="background: #FFFFFF; border: 1px solid #FFFFFF; font-family: 'Montserrat', sans-serif; font-size: 18px; line-height: 28px; font-weight: 700; text-decoration: none; padding: 10px 20px; color: #190080; display: block; border-radius: 4px;">RESPONDER
                               </a>
                           </td>
                       </tr>
@@ -397,31 +397,24 @@
           <!-- Boton : END -->
 
           <!-- Footer : BEGIN -->
-          <!-- <tr align="center" style="background-color: #000000;">
-              <td align="center"  style="background-color: #000000;padding: 10px;">
+          <tr align="center" style="background-color: #FFFFFF;">
+              <td align="center"  style="background-color: #FFFFFF;padding: 10px;">
                 
                 <a target="_blank" rel="noopener noreferrer" href="{facebook}">
-                  <img src="https://dellabitta.com.ar/img/emails/facebook.png" style="margin:0; margin-right: 20px; padding:0; border:none; display:inline-block; width: 16px; height: auto;" border="0" alt="facebook" />
+                  <img src="https://sonrielavida.org/landing/img/facebook.png" style="margin:0; margin-right: 20px; padding:0; border:none; display:inline-block; width: 16px; height: auto;" border="0" alt="facebook" />
                 </a>
 
                 <a target="_blank" rel="noopener noreferrer" href="{instagram}">
-                  <img src="https://dellabitta.com.ar/img/emails/instagram.png" style="margin:0; margin-right: 20px; padding:0; border:none; display:inline-block; width: 16px; height: auto;" border="0" alt="instagram" />
+                  <img src="https://sonrielavida.org/landing/img/instagram.png" style="margin:0; margin-right: 20px; padding:0; border:none; display:inline-block; width: 16px; height: auto;" border="0" alt="instagram" />
                 </a>
 
-                <a 
-                  href="https://web.whatsapp.com/send?phone=+{whatsapp}&text=Hola%20Dellabitta,%20Necesito%20hacer%20una%20consulta...%20" 
-                  target="_blank" 
-                  rel="noopener"
-                  >
-                  <img src="https://dellabitta.com.ar/img/emails/whatsapp.png" style="margin:0; padding:0; border:none; display:inline-block; width: 16px; height: auto;" border="0" alt="whatsapp" />
+                <a target="_blank" rel="noopener noreferrer" href="{youtube}">
+                  <img src="https://sonrielavida.org/landing/img/youtube.png" style="margin:0; margin-right: 20px; padding:0; border:none; display:inline-block; width: 16px; height: auto;" border="0" alt="youtube" />
                 </a>
-                  
+
               </td>
-          </tr> -->
+          </tr>
           <!-- Footer : END -->
-
-        </table>
-        <!-- Cuerpo del Email : END -->
 
   <!--[if mso | IE]>
   </td>

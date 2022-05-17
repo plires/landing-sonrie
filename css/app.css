@@ -175,6 +175,14 @@ header .logo {
 .formulario #send {
 	margin-top: 30px;
 }
+
+.formulario #wait {
+	display: none;
+}
+
+.formulario #wait.active {
+	display: inline-block;
+}
 /* Formulario end */
 
 /* Foco de Trabajo */

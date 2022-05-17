@@ -148,7 +148,7 @@
 
 			      <form data-aos="fade-up" id="form-contacto" action="./php/validate-form.php" method="post" class="needs-validation" novalidate>
 
-			        <input name="origin" type="hidden" value="Formulario de Contacto">
+			        <input name="origin" type="hidden" value="Formulario de Contacto Landing">
 
 			        <div class="row">
 
@@ -196,7 +196,10 @@
 			        </div>
 
 			        <div class="text-center">
-			        	<button type="button" id="send" class="btn btn-primary">Solicitar información</button>
+			        	<button type="button" id="send" class="btn btn-primary">
+			        		<span id="wait" class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+			        		Solicitar información
+			        	</button>
 			        </div>
 
 			      </form>
@@ -476,9 +479,9 @@
 	        <a class="transition" rel="noopener" target="_blank" href="<?=RRSS_INSTAGRAM?>">
 	          <i class="transition fa-brands fa-instagram-square"></i>
 	        </a>
-	        <a class="transition" rel="noopener" target="_blank" href="<?=RRSS_LINKEDIN?>">
+	        <!-- <a class="transition" rel="noopener" target="_blank" href="<//?=RRSS_LINKEDIN?>">
 	          <i class="transition fa-brands fa-linkedin"></i>
-	        </a>
+	        </a> -->
 	        <a class="transition" rel="noopener" target="_blank" href="<?=RRSS_FACEBOOK?>">
 	          <i class="transition fa-brands fa-facebook-square"></i>
 	        </a>
@@ -510,6 +513,7 @@
 	<script type="text/javascript" src="./../node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
 	<script type="text/javascript" src="./../node_modules/aos/dist/aos.js"></script>
 	<script type="text/javascript" src="./js/app.js"></script>
+	<script src="js/formsContact.js"></script>
 
 </body>
 

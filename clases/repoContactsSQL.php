@@ -16,12 +16,12 @@ class RepoContactsSQL extends repoContacts
 
     try {
       
-      $sql = "INSERT INTO contacts values(default, :name, :email, :phone, :comments, :origin, :created_at)";
+      $sql = "INSERT INTO contacts values(default, :name, :last_name, :email, :phone, :origin, :created_at)";
       $stmt = $this->conexion->prepare($sql);
       $stmt->bindValue(":name", $post['name'], PDO::PARAM_STR);
+      $stmt->bindValue(":last_name", $post['last_name'], PDO::PARAM_STR);
       $stmt->bindValue(":email", $post['email'], PDO::PARAM_STR);
       $stmt->bindValue(":phone", $post['phone'], PDO::PARAM_STR);
-      $stmt->bindValue(":comments", $post['comments'], PDO::PARAM_STR);
       $stmt->bindValue(":origin", $post['origin'], PDO::PARAM_STR);
       $stmt->bindValue(":created_at", date("Y-m-d H:i:s"), PDO::PARAM_STR);
         
@@ -34,7 +34,7 @@ class RepoContactsSQL extends repoContacts
       $section = $_POST['section'];
       $errors['base'] = 'Error al grabar datos intente nuevamente por favor';
 
-      header("Location: " . BASE . "contacto.php?errors=" . urlencode(serialize($errors)) . "#error");
+      header("Location: " . BASE . "index.php?errors=" . urlencode(serialize($errors)) . "#error");
       die();
 
     }

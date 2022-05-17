@@ -1,6 +1,6 @@
 <?php
 //incluimos la clase PHPMailer
-require_once( __DIR__ . '/../vendor/autoload.php' );
+require_once( __DIR__ . '/../../vendor/autoload.php' );
 
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\SMTP;
@@ -50,11 +50,6 @@ use PHPMailer\PHPMailer\Exception;
       $mail->isHTML(true);
       $mail->Subject = $subject; // Este es el asunto del email.
       $mail->Body = $template; // Texto del email en formato HTML
-      
-      // Copia oculta
-      // if (EMAIL_BCC != '') { // si no esta vacio el campo BCC
-      //   $mail->addBCC(EMAIL_BCC, $subject); // Copia del email
-      // }
 
       //send the message, check for errors
       $send = $mail->send();
@@ -69,16 +64,14 @@ use PHPMailer\PHPMailer\Exception;
       $vars = array(
         '{facebook}',
         '{instagram}',
-        '{linkedin}',
+        '{youtube}',
         '{name_client}',
         '{email_client}',
-        '{tel_client}',
-        '{wap_client}',
         '{origin}',
         '{name_user}',
         '{email_user}',
         '{phone_user}',
-        '{comments_user}',
+        '{last_name_user}',
         '{date}',
         '{base}'
       );
@@ -86,16 +79,14 @@ use PHPMailer\PHPMailer\Exception;
       $values = array( 
         RRSS_FACEBOOK,
         RRSS_INSTAGRAM,
-        RRSS_LINKEDIN,
+        RRSS_YOUTUBE,
         NAME_CLIENT,
         EMAIL_CLIENT,
-        TEL_CLIENT,
-        WAP_CLIENT,
         $post['origin'],
         $post['name'],
         $post['email'],
         $post['phone'],
-        $post['comments'],
+        $post['last_name'],
         date('d-m-Y'),
         BASE 
       );
@@ -123,43 +114,6 @@ use PHPMailer\PHPMailer\Exception;
 
     }
    
-    function registerEmailContactsInPerfit($api, $list, $post) {
-
-      if ( !isset($post['phone']) ) {
-        $phone = '';
-      } else {
-        $phone = $post['phone'];
-      }
-
-      try {
-
-        $perfit = new PerfitSDK\Perfit( ['apiKey' => $api ] );
-        $listId = $list;
-
-        $response = $perfit->post('/lists/' .$listId. '/contacts', 
-          [
-            'firstName' => $post['name'], 
-            'email' => $post['email'],
-            'customFields' => 
-              [
-                [
-                  'id' => 11, 
-                  'value' => $phone
-                ]
-              ]
-          ]
-        );
-        
-      } catch (Exception $e) {
-
-        $errors['perfit'] = 'No se pudo cargar tu casilla al listado de newsletter.';
-
-        header("Location: " . BASE . "contacto.php?errors=" . urlencode(serialize($errors)) . "#error");
-        
-      }
-
-    }
-
   }
 
 ?>

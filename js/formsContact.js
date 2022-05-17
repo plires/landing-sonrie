@@ -3,7 +3,6 @@ $(document).ready(function() {
   $('#send').click(function() {
 
     var btn = document.getElementById('wait');
-    
     var errorsInFieldsFront = false
 
     // Validacion del Formulario
@@ -15,7 +14,6 @@ $(document).ready(function() {
       event.stopPropagation();
       errorsInFieldsFront = true
     }
-
     form.classList.add('was-validated');
 
     if (!errorsInFieldsFront) {
@@ -32,5 +30,4 @@ $(document).ready(function() {
     } 
 
   });
-
 });

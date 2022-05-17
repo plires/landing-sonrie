@@ -36,10 +36,10 @@
 	    $email = $_POST['email'];
 	  }
 
-	  if (emptyInput($_POST['comments'])){
-	    $errors['error_comments']='Ingresa tu comentario';
+	  if (emptyInput($_POST['last_name'])){
+	    $errors['error_last_name']='Ingresa tu apellido';
 	  } else {
-	    $comments = $_POST['comments'];
+	    $last_name = $_POST['last_name'];
 	  }
 
 	  if (!isset($errors)) {
@@ -49,25 +49,22 @@
 
 		  $app = new App;
 
-		  // Registramos en Perfit el contacto
-		  $app->registerEmailContactsInPerfit(API_KEY_PERFIT, LIST_PERFIT, $_POST);
-
 	  	//Envios
 		  $template_client = $app->prepareEmailFormContacto($_POST, 'to_client');
-		  // $template_user = $app->prepareEmailFormContacto($_POST, 'to_user');
+		  $template_user = $app->prepareEmailFormContacto($_POST, 'to_user');
 
 		  // Enviar mail al usuario
-      // $send_user = $app->sendmail(
-      //   EMAIL_CLIENT, // Remitente 
-      //   NAME_CLIENT, // Nombre Remitente 
-      //   EMAIL_CLIENT, // Responder a:
-      //   NAME_CLIENT, // Remitente al nombre: 
-      //   $_POST['email'], // Destinatario 
-      //   $_POST['name'], // Nombre del destinatario
-      //   'Envio Exitoso!', // Asunto 
-      //   $template_user // Template usuario
-      // );
-      
+      $send_user = $app->sendmail(
+        EMAIL_CLIENT, // Remitente 
+        NAME_CLIENT, // Nombre Remitente 
+        EMAIL_CLIENT, // Responder a:
+        NAME_CLIENT, // Remitente al nombre: 
+        $_POST['email'], // Destinatario 
+        $_POST['name'], // Nombre del destinatario
+        'Envio Exitoso!', // Asunto 
+        $template_user // Template usuario
+      );
+
       // Enviar mail al Cliente
       $send_client = $app->sendmail(
         $_POST['email'], // Remitente 
@@ -84,13 +81,13 @@
 
 		  	$msg_contacto = 'Mensaje recibido. Le contestaremos a la brevedad. Muchas gracias!';
 
-		    header("Location: " . BASE ."contacto.php?msg_contacto=". urlencode($msg_contacto) . "#msg_contacto" );
+		    header("Location: " . BASE ."index.php?msg_contacto=". urlencode($msg_contacto) . "#msg_contacto" );
 	  		exit;
 
 		  } else {
 
 		  	$errors['mail'] = 'Error al enviar la consulta, por favor intente nuevamente';
-		  	header("Location: " . BASE . "contacto.php?errors=" . urlencode(serialize($errors)) . "#error");
+		  	header("Location: " . BASE . "index.php?errors=" . urlencode(serialize($errors)) . "#error");
 		  	exit;
 
 		  }
@@ -99,7 +96,7 @@
 
 	  	$phone = $_POST['phone'];
 
-	  	header("Location: " . BASE . "contacto.php?name=$name&email=$email&phone=$phone&comments=$comments&errors=" . urlencode(serialize($errors)) . "#error");
+	  	header("Location: " . BASE . "index.php?name=$name&email=$email&phone=$phone&last_name=$last_name&errors=" . urlencode(serialize($errors)) . "#error");
 	  	exit;
 
 	  }
@@ -108,7 +105,7 @@
 
   	// Robot
   	$errors['robot'] = 'Error. Por favor intente nuevamente';
-  	header("Location: " . BASE . "contacto.php?errors=" . urlencode(serialize($errors)) . "#error");
+  	header("Location: " . BASE . "index.php?errors=" . urlencode(serialize($errors)) . "#error");
   	exit;
 
 	} 
