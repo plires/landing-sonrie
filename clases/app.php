@@ -9,42 +9,70 @@ use PHPMailer\PHPMailer\Exception;
   class App 
   {
 
-    function sendmail($setFromEmail, $setFromName, $addReplyToEmail, $addReplyToName, $addAddressEmail, $addAddressName, $subject, $template){
+    public function sendEmail($destinatario, $template, $post)
+    {
 
-      //Create a new PHPMailer instance
-      $mail = new PHPMailer;
-      
-      if (ENVIRONMENT === 'local') {
-
-        $mail->isSendmail();
-
-      } else {
-
-        //Server settings
-        // $mail->SMTPDebug = SMTP::DEBUG_SERVER;                   //Enable verbose debug output
-        $mail->isSMTP();                                            //Send using SMTP
-        $mail->Host       = SMTP;                                   //Set the SMTP server to send through
-        $mail->SMTPAuth   = true;                                   //Enable SMTP authentication
-        $mail->Username   = USERNAME;                               //SMTP username
-        $mail->Password   = PASSWORD;                               //SMTP password
-        $mail->Port       = EMAIL_PORT;
-        $mail->CharSet = EMAIL_CHARSET;
-
-        $mail->SMTPOptions = array(
-          'ssl' => array(
-            'verify_peer' => false,
-            'verify_peer_name' => false,
-            'allow_self_signed' => true
-          )
-        );
+      switch ($destinatario) {
+        
+        case 'Cliente':
+          $emailDestino = EMAIL_CLIENT;
+          $nameShow = $post['name'];
+          $emailAddReplyTo = $post['email'];
+          $emailShow = EMAIL_CLIENT;  // Mi cuenta de correo
+          break;
+        
+        case 'Usuario':
+          $emailDestino = $post['email'];
+          $nameShow = NAME_CLIENT;
+          $emailAddReplyTo = EMAIL_CLIENT;
+          $emailShow = EMAIL_CLIENT;  // Mi cuenta de correo
+          break;
 
       }
 
+      switch ($template) {
+
+        case 'Contacto Cliente':
+          $template = $this->selectEmailTemplate($post, 'to_client');
+          $subject = 'Nueva consulta desde el ' . $post['origin'];
+          break;
+        
+        case 'Contacto Usuario':
+          $template = $this->selectEmailTemplate($post, 'to_user');
+          $subject = 'Gracias por tu contacto.';
+          break;
+        
+      }
+
+      $mail = new PHPMailer();
+
+      if (ENVIRONMENT === 'local') {
+        $mail->isSendmail();
+      } else {
+        $mail->IsSMTP();
+      }
+
+      // SERVER SETTINGS
+      // $mail->SMTPDebug = SMTP::DEBUG_SERVER;
+      $mail->Host = SMTP; 
+      $mail->Username = EMAIL_CLIENT; 
+      $mail->Password = PASSWORD;
+      $mail->SMTPAuth = true;
+      $mail->Port = EMAIL_PORT; 
+      $mail->CharSet = EMAIL_CHARSET;
+      $mail->SMTPOptions = array(
+        'ssl' => array(
+          'verify_peer' => false,
+          'verify_peer_name' => false,
+          'allow_self_signed' => true
+        )
+      );
+
       // ENVIOS
-      $mail->From = $addAddressEmail; // Email desde donde envío el correo.
-      $mail->FromName = $setFromName; // Nombre para mostrar en el envío del correo.
-      $mail->AddAddress($addAddressEmail); // Esta es la dirección a donde enviamos los datos del formulario
-      $mail->AddReplyTo($addReplyToEmail); // Responder a:
+      $mail->From = $emailShow; // Email desde donde envío el correo.
+      $mail->FromName = $nameShow; // Nombre para mostrar en el envío del correo.
+      $mail->AddAddress($emailDestino); // Esta es la dirección a donde enviamos los datos del formulario
+      $mail->AddReplyTo($emailAddReplyTo); // Responder a:
 
       // CONTENIDO
       $mail->isHTML(true);
@@ -55,10 +83,10 @@ use PHPMailer\PHPMailer\Exception;
       $send = $mail->send();
 
       return $send;
-      
+
     }
 
-    function prepareEmailFormContacto($post, $to) {
+    function selectEmailTemplate($post, $to) {
 
       //configuro las variables a remplazar en el template
       $vars = array(

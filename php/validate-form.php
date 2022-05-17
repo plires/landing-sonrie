@@ -43,44 +43,19 @@
 	  }
 
 	  if (!isset($errors)) {
-
+	  	
 	  	//grabamos en la base de datos
 		  $save = $db->getRepoContacts()->saveContactFormContactInBDD($_POST);
 
+		  //Enviamos los mails al cliente y usuario
 		  $app = new App;
 
-	  	//Envios
-		  $template_client = $app->prepareEmailFormContacto($_POST, 'to_client');
-		  $template_user = $app->prepareEmailFormContacto($_POST, 'to_user');
+		  $sendClient = $app->sendEmail('Cliente', 'Contacto Cliente', $_POST);
+		  $sendUser = $app->sendEmail('Usuario', 'Contacto Usuario', $_POST);
 
-		  // Enviar mail al usuario
-      $send_user = $app->sendmail(
-        EMAIL_CLIENT, // Remitente 
-        NAME_CLIENT, // Nombre Remitente 
-        EMAIL_CLIENT, // Responder a:
-        NAME_CLIENT, // Remitente al nombre: 
-        $_POST['email'], // Destinatario 
-        $_POST['name'], // Nombre del destinatario
-        'Envio Exitoso!', // Asunto 
-        $template_user // Template usuario
-      );
-
-      // Enviar mail al Cliente
-      $send_client = $app->sendmail(
-        $_POST['email'], // Remitente 
-        $_POST['name'], // Nombre Remitente 
-        $_POST['email'], // Responder a:
-        $_POST['name'], // Remitente al nombre: 
-        EMAIL_CLIENT, // Destinatario 
-        NAME_CLIENT, // Nombre del destinatario
-        'Nueva consulta desde el ' . $_POST['origin'], // Asunto 
-        $template_client // Template cliente
-      );
-
-		  if ($send_client) {
-
+		  if ($sendClient) {
+		  	
 		  	$msg_contacto = 'Mensaje recibido. Le contestaremos a la brevedad. Muchas gracias!';
-
 		    header("Location: " . BASE ."index.php?msg_contacto=". urlencode($msg_contacto) . "#msg_contacto" );
 	  		exit;
 
@@ -95,17 +70,20 @@
 	  } else {
 
 	  	$phone = $_POST['phone'];
-
 	  	header("Location: " . BASE . "index.php?name=$name&email=$email&phone=$phone&last_name=$last_name&errors=" . urlencode(serialize($errors)) . "#error");
 	  	exit;
 
 	  }
 	  
   } else {
-
+  	
   	// Robot
   	$errors['robot'] = 'Error. Por favor intente nuevamente';
   	header("Location: " . BASE . "index.php?errors=" . urlencode(serialize($errors)) . "#error");
   	exit;
+	}
 
-	} 
+
+
+
+
