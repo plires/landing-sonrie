@@ -12,20 +12,24 @@ use PHPMailer\PHPMailer\Exception;
     public function sendEmail($destinatario, $template, $post)
     {
 
+      $mail = new PHPMailer();
+
       switch ($destinatario) {
         
         case 'Cliente':
-          $emailDestino = EMAIL_CLIENT;
-          $nameShow = $post['name'];
-          $emailAddReplyTo = $post['email'];
-          $emailShow = EMAIL_CLIENT;  // Mi cuenta de correo
+
+          //ENVIOS
+          $mail->setFrom($post['email'], $post['name']);
+          $mail->addAddress(EMAIL_CLIENT, NAME_CLIENT);     //Add a recipient
+          $mail->addReplyTo($post['email'], $post['name']);
           break;
         
         case 'Usuario':
-          $emailDestino = $post['email'];
-          $nameShow = NAME_CLIENT;
-          $emailAddReplyTo = EMAIL_CLIENT;
-          $emailShow = EMAIL_CLIENT;  // Mi cuenta de correo
+
+          //ENVIOS
+          $mail->setFrom(EMAIL_CLIENT, NAME_CLIENT);
+          $mail->addAddress($post['email'], $post['name']);     //Add a recipient
+          $mail->addReplyTo(EMAIL_CLIENT, NAME_CLIENT);
           break;
 
       }
@@ -33,51 +37,37 @@ use PHPMailer\PHPMailer\Exception;
       switch ($template) {
 
         case 'Contacto Cliente':
-          $template = $this->selectEmailTemplate($post, 'to_client');
+          $template_email = $this->selectEmailTemplate($post, 'to_client');
           $subject = 'Nueva consulta desde el ' . $post['origin'];
           break;
         
         case 'Contacto Usuario':
-          $template = $this->selectEmailTemplate($post, 'to_user');
+          $template_email = $this->selectEmailTemplate($post, 'to_user');
           $subject = 'Gracias por tu contacto.';
           break;
         
       }
 
-      $mail = new PHPMailer();
-
       if (ENVIRONMENT === 'local') {
         $mail->isSendmail();
       } else {
-        $mail->IsSMTP();
+        $mail->isSMTP();
       }
 
-      // SERVER SETTINGS
-      // $mail->SMTPDebug = SMTP::DEBUG_SERVER;
-      $mail->Host = SMTP; 
-      $mail->Username = EMAIL_CLIENT; 
-      $mail->Password = PASSWORD;
-      $mail->SMTPAuth = true;
-      $mail->Port = EMAIL_PORT; 
+      //SERVER SETTINGS
+      //$mail->SMTPDebug = SMTP::DEBUG_SERVER;                    
+      $mail->Host       = SMTP;                     
+      $mail->SMTPAuth   = true;                                   
+      $mail->Username   = EMAIL_CLIENT;                    
+      $mail->Password   = PASSWORD;                              
+      $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;            //Enable implicit TLS encryption
       $mail->CharSet = EMAIL_CHARSET;
-      $mail->SMTPOptions = array(
-        'ssl' => array(
-          'verify_peer' => false,
-          'verify_peer_name' => false,
-          'allow_self_signed' => true
-        )
-      );
+      $mail->Port       = EMAIL_PORT;                                    //TCP port to connect to; use 587 if you have set 
 
-      // ENVIOS
-      $mail->From = $emailShow; // Email desde donde envío el correo.
-      $mail->FromName = $nameShow; // Nombre para mostrar en el envío del correo.
-      $mail->AddAddress($emailDestino); // Esta es la dirección a donde enviamos los datos del formulario
-      $mail->AddReplyTo($emailAddReplyTo); // Responder a:
-
-      // CONTENIDO
-      $mail->isHTML(true);
-      $mail->Subject = $subject; // Este es el asunto del email.
-      $mail->Body = $template; // Texto del email en formato HTML
+      //CONTENIDO
+      $mail->isHTML(true);                                  
+      $mail->Subject = $subject;
+      $mail->Body    = $template_email;
 
       //send the message, check for errors
       $send = $mail->send();
