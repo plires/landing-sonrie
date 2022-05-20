@@ -331,16 +331,16 @@
 				  			<h2>Objetivos & Creencias</h2>
 				  		</div>
 			        <p data-aos="fade-up">
-								• Aspiramos a proporcionar a la comunidad, tecnologías capaces de mejorar los obstáculos que 
-								impiden la plenitud de las personas.  
-								• Apuntamos a campañas de capacitación y difusión capaces de lograr concientizar problemas como lo son, la depresión, ansiedad, bullying,  
-								• Aspiramos a que nuestro CID proporcione los avances propicios para alargar y mejorar la vida. 
-								• Promovemos la educación y la incorporación de programas para enseñar y capacitar a las personas. 
-								• Impulsamos la expansión del Arte y los Deportes como catalizadores de emociones.  
-								• Valoramos la cooperación y la disposición tanto de empresas públicas, privadas y/o Instituciones 
-								Universitarias. 
-								• Trabajar en conjunto con diversas ONG que puedan cooperar con el bienestar en todos sus grados 
-								mediante acciones por realizar en conjunto
+								&bull; Aspiramos a proporcionar a la comunidad, tecnologías capaces de mejorar los obstáculos que 
+								impiden la plenitud de las personas.  <br>
+								&bull; Apuntamos a campañas de capacitación y difusión capaces de lograr concientizar problemas como lo son, la depresión, ansiedad, bullying,  <br>
+								&bull; Aspiramos a que nuestro CID proporcione los avances propicios para alargar y mejorar la vida. <br>
+								&bull; Promovemos la educación y la incorporación de programas para enseñar y capacitar a las personas. <br>
+								&bull; Impulsamos la expansión del Arte y los Deportes como catalizadores de emociones.  <br>
+								&bull; Valoramos la cooperación y la disposición tanto de empresas públicas, privadas y/o Instituciones 
+								Universitarias. <br>
+								&bull; Trabajar en conjunto con diversas ONG que puedan cooperar con el bienestar en todos sus grados 
+								mediante acciones por realizar en conjunto.<br>
 			        </p>
 			  		</div>
 			  	</div>
