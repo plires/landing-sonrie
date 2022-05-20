@@ -440,7 +440,7 @@
 				  			<div class="col-md-6">
 						  		<div class="content_info gradient_50">
 										<p>
-											El Programa RINACERE salvo mi vida, ahora estoy feliz y desde ahora seré un miembro activo de esta institución.
+											El Programa RINACERE fue de gran importancia en mi vida, ahora estoy feliz y desde ahora seré un miembro activo de esta institución.
 										</p>
 										<p>José<br><span>45 años</span></p>
 						  		</div>			  				
