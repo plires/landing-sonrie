@@ -863,6 +863,33 @@ footer .col-md-10 .data i:hover {
 	}
 	/* Testimonios end */
 
+	/* Footer */
+	footer .col-md-10 {
+		flex-direction: row;
+		justify-content: space-between;
+		align-items: center;
+	}
+
+	footer .logo_footer {
+		margin-bottom: 0;
+	}
+
+	footer .col-md-10 .rrss {
+		margin-bottom: 0;
+		align-self: center;
+	}
+
+	footer .col-md-10 .rrss a, 
+	footer .col-md-10 .rrss i {
+		margin-right: 20px;
+	}
+
+	footer .col-md-10 .rrss a:last-child, 
+	footer .col-md-10 .rrss i:last-child {
+		margin-right: 0;
+	}
+	/* Footer end */
+
 }
 
 @media (min-width: 1600px) {
