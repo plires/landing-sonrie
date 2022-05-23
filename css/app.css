@@ -149,6 +149,10 @@ header .logo {
 .pos_header .gradient p {
 	color: white;
 }
+
+.pos_header .img_fundacion {
+	height: 100%;
+}
 /* Pos Header end */
 
 /* Formulario */
